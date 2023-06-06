@@ -1,0 +1,27 @@
+<template>
+    <template if:true={opportunity}>
+        <lightning-card  variant="narrow"  title="Create a record" icon-name="standard:opportunity" key={recordId}>
+
+            <lightning-record-edit-form
+                    object-api-name="Opportunity"
+                    onsubmit={handleSubmit}>
+                <lightning-messages></lightning-messages>
+                <div class="slds-grid" style=margin:20px>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Name" value={opportunity.Name}> </lightning-input-field>
+                        <lightning-input-field field-name="BillingAddress__c" value={opportunity.BillingAddress__c}> </lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="StageName" value={stageName}> </lightning-input-field>
+                        <lightning-input-field field-name="CloseDate"> </lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-m-top_large slds-grid slds-grid_align-center slds-align–absolute-center">
+                    <lightning-button variant="brand" type="submit" label="Save" disabled={isButtonDisabled}>
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+
+        </lightning-card>
+    </template>
+</template>
